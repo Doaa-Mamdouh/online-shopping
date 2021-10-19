@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 export default function useCart(productsWithUnits) {
+    const [TotalCartItems, setTotalCartItems] = useState(0);
     const [cart, setCart] = useState(()=>{
         try{
           //save cart data into local storage
@@ -61,11 +62,11 @@ export default function useCart(productsWithUnits) {
         setCart([]);
     }
     let totalitems = 0
-    //function calculateTotalCartItems(){
-       // totalitems = cart.reduce((total, item)=>total + item.quantity, 0)
-       // setTotalCartItems(total)
+  //  function calculateTotalCartItems(){
+       totalitems = cart.reduce((total, item)=>total + item.quantity, 0)
+   //    setTotalCartItems(totalitems)
          
-   // }
+  // }
     return{
         cart, 
         addToCart, 

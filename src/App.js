@@ -29,7 +29,7 @@ const {
   emptyCart, 
   totalitems
 } = useCart(productsWithUnits);
-//const [totalInCart, setTotalInCart] = useState(totalCartItems);
+
   return (
     <div>
       <BrowserRouter>
