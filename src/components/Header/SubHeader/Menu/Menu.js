@@ -20,7 +20,7 @@ export default function Menu() {
                             <nav id="main-menu" className="main-menu">
                                 <ul>
                                     <li className="active"><Link to={"/"}>home</Link></li>
-                                    <li><a href="shop.html">shop</a>
+                                    <li><a href="/">shop</a>
                                         <ul className="sub-menu">
                                             <li><a href="shop.html">shop page</a></li>
                                             <li><a href="product-details.html">product details</a></li>

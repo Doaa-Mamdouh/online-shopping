@@ -32,10 +32,15 @@ const {
 
   return (
     <div>
-      <BrowserRouter>
+      <BrowserRouter >
         <Switch>
           <Route exact path="/" render={() => <ProductList addToCart={addToCart} products={productsWithUnits} cartNum={totalitems}/>} />
+          <Route exact path="/product/:id">
+            <ProductDetails addToCart={addToCart} /> 
+            </Route>
+          
           <Route
+          path='/cart'
             render={({ location }) => ['/cart'].includes(location.pathname)
               ? <Cart cart={cart} 
                     updateQuanity={updateQuanity}
@@ -44,15 +49,21 @@ const {
               : null
             }
           />
-          <Route path="/:id" render={() => <ProductDetails addToCart={addToCart} />} />
+
           {/* <Route  path="/cart" element={<Cart/>} />  */}
+
+          {/* /cart 
+          /cart/solsol
+
+          /
+          */}
 
          
         </Switch>
       </BrowserRouter>
 
       <Header cartNum={totalitems} />
-      {/* <Carousel/> */}
+       {/* <Carousel/>  */}
     </div>
   );
 }

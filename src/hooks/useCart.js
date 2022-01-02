@@ -35,21 +35,17 @@ export default function useCart(productsWithUnits) {
 
     function updateQuanity(pId, newQuantity){
         setCart((items=>{
-             items.map(i=>{
+             return items.map(i=>{
                 if (i.id === pId){
                     if (i.units >= newQuantity){
-                        return items.map(i=> i.id === pId ? 
-                            {...i, quantity:newQuantity, noUnits:false} : i)
-                       // return [...items,{...i, quantity:quantity, noUnits:false}] 
+                        return  {...i, quantity:newQuantity, noUnits:false}
                     }
                     else{
-                        return items.map(i=> i.id === pId ? {...i, noUnits:true} : i)
-                        //return [...items, { ...i, noUnits: true }];
-                        //return items.map(i=> i.id !== pId ?)
-                        //return[...items,{...i, noUnits:true}]
+                        return {...i, noUnits:true} 
                     }
-                }            
-                //return [items]            
+                } else {
+                    return i;
+                }                   
             })
                // (i.id === pId && i.units >= quantity) ? {...i, quantity:quantity, noUnits:false} : {...i, noUnits:true})
         }))
@@ -61,12 +57,11 @@ export default function useCart(productsWithUnits) {
     function emptyCart(){
         setCart([]);
     }
+  
+    
     let totalitems = 0
-  //  function calculateTotalCartItems(){
        totalitems = cart.reduce((total, item)=>total + item.quantity, 0)
-   //    setTotalCartItems(totalitems)
-         
-  // }
+
     return{
         cart, 
         addToCart, 
